@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="109px" height="122px" viewBox="0 0 109 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>instacart-vector-logo</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="instacart-vector-logo" fill-rule="nonzero">
+            <path d="M72,49 C79.2,56.2 84.9,67.9 81.6,74.8 C72.7,93.4 6.3,126 0.7,120.4 C-5,114.8 27.7,48.3 46.3,39.4 C53.2,36.1 64.9,41.8 72,49 L72,49 Z" id="Path" fill="#FF8200"></path>
+            <g id="Group" transform="translate(62.000000, 0.000000)" fill="#43B02A">
+                <path d="M45.2,41.1 C44,36.8 41.1,32.5 36.7,32 C28.6,31.1 15.9,45.3 16.8,48.8 C17.7,52.3 35.7,58.2 42.4,53.3 C45.9,50.9 46.3,45.5 45.2,41.1 Z M20.2,1.6 C26.2,3.2 32.2,7.4 33,13.6 C34.3,24.9 14.3,42.8 9.6,41.5 C4.9,40.2 -3.5,15.1 3.2,5.6 C6.7,0.8 14.2,0.1 20.2,1.6 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

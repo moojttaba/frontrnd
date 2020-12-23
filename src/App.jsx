@@ -1,0 +1,81 @@
+import React, { useEffect, lazy, Suspense, useState } from "react";
+
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "./redux/user/user.selectors";
+import { checkUserSession } from "./redux/user/user.actions";
+import { fetchCollectionsStart } from "./redux/shop/shop.actions";
+
+//////////////////////////////////////////// styles
+import theme from "./styles/theme.jsx";
+import { ThemeProvider } from "@material-ui/core/styles";
+
+//////////////////////////////////////////// Route
+import { Route, Switch, Redirect } from "react-router-dom";
+
+//////////////////////////////////////////// COMPONENTS
+import Spinner from "./components/spinner.component";
+import Header from "./layouts/header.layout";
+
+//////////////////////////////////////////// PAGES
+const SignInAndSignUpPage = lazy(() =>
+  import("./pages/sign-up-and-sign-in.page")
+);
+const HomePage = lazy(() => import("./pages/home.page"));
+const ProfilePage = lazy(() => import("./pages/profile.page"));
+const SavingsPage = lazy(() => import("./pages/savings.page"));
+const ShopPage = lazy(() => import("./pages/shop.page"));
+const CheckoutPage = lazy(() => import("./pages/checkout.page"));
+
+const App = ({ checkUserSession, currentUser, fetchCollectionsStart }) => {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    checkUserSession();
+    fetchCollectionsStart();
+  }, [checkUserSession, fetchCollectionsStart]);
+
+  return (
+    <ThemeProvider theme={theme}>
+      {currentUser ? (
+        <React.Fragment>
+          <Header value={value} setValue={setValue} />
+          <Switch>
+            <Suspense fallback={<Spinner />}>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/shop" component={ShopPage} />
+              <Route path="/Profile" component={ProfilePage} />
+              <Route path="/Savings" component={SavingsPage} />
+              <Route exact path="/checkout" component={CheckoutPage} />
+             
+            </Suspense>
+          </Switch>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Suspense fallback={<Spinner />}>
+            <Route
+              exact
+              path="/"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
+              }
+            />
+          </Suspense>
+        </React.Fragment>
+      )}
+    </ThemeProvider>
+  );
+};
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+//const CheckoutPage = lazy(() => import("../pages/checkout.page"));
