@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectCartItems } from "../redux/cart/cart.selectors";
+//import { selectCartItems } from "../redux/cart/cart.selectors";
 
-import { addItem } from "../redux/cart/cart.actions";
+//import { addItem } from "../redux/cart/cart.actions";
 import { makeStyles } from "@material-ui/core/styles";
 
 import GridListTile from "@material-ui/core/GridListTile";
@@ -15,11 +15,11 @@ import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
+//import IconButton from "@material-ui/core/IconButton";
 
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+//import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
-import CountItem from "./count-item.component";
+//import CountItem from "./count-item.component";
 
 const useStyles = makeStyles((theme) => ({
   GridListTile: {
@@ -83,8 +83,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CollectionItem = ({ cartItems, item, addItem }) => {
-  const { name, price, imageUrl } = item;
+const CollectionItem = ({
+  //cartItems,
+  item,
+  //addItem
+}) => {
+  const { title, price, imageLink } = item;
 
   const classes = useStyles();
   //const [expanded, setExpanded] = React.useState(false);
@@ -96,18 +100,18 @@ const CollectionItem = ({ cartItems, item, addItem }) => {
   return (
     <GridListTile className={classes.GridListTile}>
       <Card className={classes.Card}>
-        {cartItems.map((cartItem) =>
+        {/* {cartItems.map((cartItem) =>
           cartItem.id === item.id ? (
             <CountItem key={cartItem.id} cartItem={cartItem} />
           ) : null
-        )}
-        <IconButton aria-label="settings" onClick={() => addItem(item)}>
+        )} */}
+        {/* <IconButton aria-label="settings" onClick={() => addItem(item)}>
           <AddCircleOutlineIcon color="primary" />
-        </IconButton>
-        <CardMedia className={classes.media} image={imageUrl} />
+        </IconButton> */}
+        <CardMedia className={classes.media} image={imageLink} />
         <CardHeader
           className={classes.CardHeader}
-          title={name}
+          title={title}
           subheader={` ${price} تومان`}
         />
         <CardContent>
@@ -128,11 +132,11 @@ const CollectionItem = ({ cartItems, item, addItem }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
+  //cartItems: selectCartItems,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
+  //addItem: (item) => dispatch(addItem(item)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);
