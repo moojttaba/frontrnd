@@ -1,15 +1,12 @@
-import React, {
-  // useEffect,
-  lazy,
-  Suspense,
-  useState,
-} from "react";
+import React, { useEffect, lazy, Suspense, useState } from "react";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./redux/user/user.selectors";
-import { checkUserSession } from "./redux/user/user.actions";
-import { fetchCollectionsStart } from "./redux/shop/shop.actions";
+// import { checkUserSession } from "./redux/user/user.actions";
+// import { fetchCollectionsStart } from "./redux/shop/shop.actions";
+
+import { fetchMdCollectionsStart } from "./redux/mongoDB/md.actions";
 
 //////////////////////////////////////////// styles
 import theme from "./styles/theme.jsx";
@@ -32,12 +29,16 @@ const SavingsPage = lazy(() => import("./pages/savings.page"));
 const ShopPage = lazy(() => import("./pages/shop.page"));
 const CheckoutPage = lazy(() => import("./pages/checkout.page"));
 
-const App = ({ checkUserSession, currentUser, fetchCollectionsStart }) => {
+const App = ({ checkUserSession, currentUser, fetchMdCollectionsStart }) => {
   const [value, setValue] = useState(0);
   // useEffect(() => {
   //   checkUserSession();
   //   fetchCollectionsStart();
   // }, [checkUserSession, fetchCollectionsStart]);
+
+  useEffect(() => {
+    fetchMdCollectionsStart();
+  }, [fetchMdCollectionsStart]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -62,10 +63,9 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  checkUserSession: () => dispatch(checkUserSession()),
-  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+  // checkUserSession: () => dispatch(checkUserSession()),
+  // fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+  fetchMdCollectionsStart: () => dispatch(fetchMdCollectionsStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-//const CheckoutPage = lazy(() => import("../pages/checkout.page"));

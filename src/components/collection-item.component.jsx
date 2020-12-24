@@ -23,9 +23,10 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   GridListTile: {
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(1),
   },
   Card: {
+    padding:theme.spacing(0, 1),
     margin: "10px 10px",
     width: 210,
     height: "97%",
