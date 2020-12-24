@@ -10,8 +10,11 @@ import { connect } from "react-redux";
 import { fetchCollectionsStart } from "../redux/shop/shop.actions";
 //import CollectionPage from "./collection.page";
 import Spinner from "../components/spinner.component";
-const CollectionsOverview = lazy(() =>
-  import("../components/collection-overview.component")
+// const CollectionsOverview = lazy(() =>
+//   import("../components/collection-overview.component")
+// );
+const CollectionsPreview = lazy(() =>
+  import("../components/collection-preview.component")
 );
 
 const ShopPage = ({ fetchCollectionsStart, match }) => {
@@ -33,7 +36,7 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
 
     <Fragment>
       <Suspense fallback={<Spinner />}>
-        <CollectionsOverview/>
+        <CollectionsPreview/>
       </Suspense>
     </Fragment>
   );

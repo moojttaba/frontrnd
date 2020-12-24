@@ -88,7 +88,7 @@ const CollectionItem = ({
   item,
   //addItem
 }) => {
-  const { title, price, imageLink } = item;
+  const { title, price, imageLink,description } = item;
 
   const classes = useStyles();
   //const [expanded, setExpanded] = React.useState(false);
@@ -116,8 +116,7 @@ const CollectionItem = ({
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            این پایلا چشمگیر یک غذای مهمانی عالی و یک وعده غذایی سرگرم کننده
-            برای طبخ است
+            {description}
           </Typography>
         </CardContent>
 
