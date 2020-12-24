@@ -7,11 +7,10 @@ import axios from "axios";
 // } from "../../firebase/firebase.utils";
 // import { getAllProducts } from "./../../api/axios.api.jsx";
 
-
-
-
-
-import { fetchMdCollectionsSuccess, fetchMdCollectionsFailure } from "./md.actions";
+import {
+  fetchMdCollectionsSuccess,
+  fetchMdCollectionsFailure,
+} from "./md.actions";
 
 import MdActionTypes from "./md.types";
 
@@ -19,7 +18,9 @@ export function* fetchCollectionsAsync() {
   try {
     //const collectionRef = firestore.collection("collections");
     //const snapshot = yield collectionRef.get();
-    const collectionsMap =  axios.get('/api/v1/products');
+    const collectionsMap = axios
+      .get("/api/v1/products")
+      .then((response) => response.data);
     yield put(fetchMdCollectionsSuccess(collectionsMap));
   } catch (error) {
     yield put(fetchMdCollectionsFailure(error.message));

@@ -2,10 +2,12 @@ import { createSelector } from "reselect";
 
 const selectMd = (state) => state.md;
 
-export const selectCollections = createSelector(
+export const selectMdCollections = createSelector(
   [selectMd],
-  (md) => md.MDcollections.data
+  (md) => md.MDcollections.data.products
 );
+
+
 
 // export const selectCollectionsForPreview = createSelector(
 //   [selectCollections],

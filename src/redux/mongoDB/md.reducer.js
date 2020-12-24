@@ -1,29 +1,32 @@
 import MdActionTypes from "./md.types";
 const INITIAL_STATE = {
-  MDcollections: null,
+  MDcollections: {
+    data: {
+      products: null,
+    },
+  },
   isFetching: false,
-  errorMessage: undefined
+  errorMessage: undefined,
 };
-
 
 const mdReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case MdActionTypes.FETCH_MDCOLLECTIONS_START:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
     case MdActionTypes.FETCH_MDCOLLECTIONS_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        MDcollections: action.payload
+        MDcollections: action.payload,
       };
     case MdActionTypes.FETCH_MDCOLLECTIONS_FAILURE:
       return {
         ...state,
         isFetching: false,
-        errorMessage: action.payload
+        errorMessage: action.payload,
       };
     default:
       return state;
@@ -31,4 +34,3 @@ const mdReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default mdReducer;
-
