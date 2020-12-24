@@ -20,17 +20,19 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "nowrap",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
-    
   },
 }));
 
-const CollectionPreview = ({ header, items }) => {
+const CollectionPreview = ({
+  //header,
+  items,
+}) => {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <div className={classes.root}>
-        {header}
+        {/* {header} */}
         <GridList className={classes.gridList} cols={2.5}>
           {items
             .filter((item, idx) => idx < 7)
