@@ -1,16 +1,15 @@
-import mdActionTypes from './md.types';
-import axios from 'axios';
+import MdActionTypes from "./md.types";
 
+export const fetchMdCollectionsStart = () => ({
+  type: MdActionTypes.FETCH_MDCOLLECTIONS_START,
+});
 
+export const fetchMdCollectionsSuccess = (collectionsMap) => ({
+  type: MdActionTypes.FETCH_MDCOLLECTIONS_SUCCESS,
+  payload: collectionsMap,
+});
 
-export const fetchmd = () => {
-  const response = axios.get('http://localhost:4000/api/v1/products');
-
-  return {
-    type: mdActionTypes.FETCH_MD,
-    payload: response
-
-  }
-}
-
-
+export const fetchMdCollectionsFailure = (errorMessage) => ({
+  type: MdActionTypes.FETCH_MDCOLLECTIONS_FAILURE,
+  payload: errorMessage,
+});
