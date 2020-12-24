@@ -1,4 +1,9 @@
-import React, { useEffect, lazy, Suspense, useState } from "react";
+import React, {
+  // useEffect,
+  lazy,
+  Suspense,
+  useState,
+} from "react";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -11,7 +16,7 @@ import theme from "./styles/theme.jsx";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 //////////////////////////////////////////// Route
-import { Route, Switch,  } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 //////////////////////////////////////////// COMPONENTS
 import Spinner from "./components/spinner.component";
@@ -29,10 +34,10 @@ const CheckoutPage = lazy(() => import("./pages/checkout.page"));
 
 const App = ({ checkUserSession, currentUser, fetchCollectionsStart }) => {
   const [value, setValue] = useState(0);
-  useEffect(() => {
-    checkUserSession();
-    fetchCollectionsStart();
-  }, [checkUserSession, fetchCollectionsStart]);
+  // useEffect(() => {
+  //   checkUserSession();
+  //   fetchCollectionsStart();
+  // }, [checkUserSession, fetchCollectionsStart]);
 
   return (
     <ThemeProvider theme={theme}>

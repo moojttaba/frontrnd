@@ -13,10 +13,10 @@ const CollectionsOverview = lazy(() =>
 
 
 const ShopPage = ({ fetchCollectionsStart, match }) => {
-  useEffect(() => {
-    fetchCollectionsStart();
-  }, [fetchCollectionsStart]);
-  fetchCollectionsStart();
+  // useEffect(() => {
+  //   fetchCollectionsStart();
+  // }, [fetchCollectionsStart]);
+  // fetchCollectionsStart();
 
   return (
     <React.Fragment>
