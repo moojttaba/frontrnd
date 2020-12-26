@@ -7,6 +7,8 @@ import cartReducer from './cart/cart.reducer';
 import directoryReducer from './directory/directory.reducr';
 import shopReducer from './shop/shop.reducer';
 import uiReducer from './ui/ui.reducer';
+import mdReducer from './mongoDB/md.reducer';
+
 
 const persistConfig = {
   key: 'root',
@@ -20,6 +22,7 @@ const rootReducer = combineReducers({
   directory: directoryReducer,
   shop: shopReducer,
   ui: uiReducer,
+  md: mdReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

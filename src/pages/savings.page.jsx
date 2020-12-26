@@ -1,13 +1,28 @@
-import React from 'react';
+import { Fragment } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
+import { selectMdCollections } from "./../redux/mongoDB/md.selectors";
 
+import Button from "@material-ui/core/Button";
+import { fetchMdCollectionsStart } from "./../redux/mongoDB/md.actions";
 
-const SavingsPage = () => {
+const SavingsPage = ({ fetchCollectionsStart, md}) => {
+  console.log(md)
   return (
-    <div >
-      SavingPage
-    </div>
+    <Fragment>
+      <Button variant="contained" onClick={fetchCollectionsStart}>
+        fetchMd
+      </Button>
+    </Fragment>
   );
-}
+};
 
-export default SavingsPage;
+const mapDispatchToProps = (dispatch) => ({
+  fetchCollectionsStart: () => dispatch(fetchMdCollectionsStart()),
+});
+const mapStateToProps = createStructuredSelector({
+  md: selectMdCollections,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SavingsPage);

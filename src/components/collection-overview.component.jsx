@@ -4,8 +4,8 @@ import { createStructuredSelector } from "reselect";
 
 import CollectionPreview from "./collection-preview.component";
 
-
-import { selectCollectionsForPreview } from "../redux/shop/shop.selectors";
+// import { selectCollectionsForPreview } from "../redux/shop/shop.selectors";
+import { selectMdCollections } from "./../redux/mongoDB/md.selectors";
 
 const CollectionsOverview = ({ collections }) => {
   return (
@@ -18,7 +18,8 @@ const CollectionsOverview = ({ collections }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  collections: selectCollectionsForPreview,
+  //collections: selectCollectionsForPreview,
+  collections: selectMdCollections,
 });
 
 export default connect(mapStateToProps)(CollectionsOverview);
