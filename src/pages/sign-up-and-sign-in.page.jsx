@@ -15,7 +15,7 @@ import { Typography } from "@material-ui/core";
 import SignIn from "../containers/sign-in.container";
 import SignUp from "../containers/sign-up.container";
 import signImage from "../assets/ungate-shipt-shopper.jpg";
-import SimpleHeader from '../layouts/header-simple.layout';
+// import SimpleHeader from '../layouts/header-simple.layout';
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
@@ -47,7 +47,7 @@ const SignInAndSignUpPage = ({ signUpTrue }) => {
 
   return (
     <React.Fragment>
-      <SimpleHeader/>
+      {/* <SimpleHeader/> */}
       <Grid
         container
         className={classes.mainContainer}

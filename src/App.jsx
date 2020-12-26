@@ -20,9 +20,9 @@ import Spinner from "./components/spinner.component";
 import Header from "./layouts/header.layout";
 
 //////////////////////////////////////////// PAGES
-// const SignInAndSignUpPage = lazy(() =>
-//   import("./pages/sign-up-and-sign-in.page")
-// );
+const SignInAndSignUpPage = lazy(() =>
+  import("./pages/sign-up-and-sign-in.page")
+);
 const HomePage = lazy(() => import("./pages/home.page"));
 const ProfilePage = lazy(() => import("./pages/profile.page"));
 const SavingsPage = lazy(() => import("./pages/savings.page"));
@@ -47,6 +47,7 @@ const App = ({ checkUserSession, currentUser, fetchMdCollectionsStart }) => {
         <Switch>
           <Suspense fallback={<Spinner />}>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/SignInAndSignUpPage" component={SignInAndSignUpPage} />
             <Route path="/shop" component={ShopPage} />
             <Route path="/Profile" component={ProfilePage} />
             <Route path="/Savings" component={SavingsPage} />
